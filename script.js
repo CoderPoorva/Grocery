@@ -1,53 +1,49 @@
-// Get the navigation elements
-const navbar = document.querySelector('.header .navbar');
-const loginForm = document.querySelector('.header .login-form');
-const shoppingCart = document.querySelector('.header .shopping-cart');
-const searchForm = document.querySelector('.header .search-form');
-const menuBtn = document.querySelector('#menu-btn');
-const searchBtn = document.querySelector('#search-btn');
-const shoppingCartBtn = document.querySelector('#shoppingcart');
-const loginFormBtn = document.querySelector('#loginform');
+let navbar = document.querySelector('.navbar');
+let loginForm = document.querySelector('.login-form');
+let shoppingCart = document.querySelector('.shopping-cart');
+let searchForm = document.querySelector('.search-form');
 
-// Function to toggle the active class and close other elements
-function toggleElement(element) {
-    element.classList.toggle('active');
+document.querySelector('#menu-btn').onclick = () => {
+    navbar.classList.toggle('active');
     loginForm.classList.remove('active');
     shoppingCart.classList.remove('active');
     searchForm.classList.remove('active');
 }
 
-// Toggle the navigation menu on menu button click
-menuBtn.addEventListener('click', function () {
-    toggleElement(navbar);
-});
+document.querySelector('#search-btn').onclick = () => {
+    searchForm.classList.toggle('active');
+    loginForm.classList.remove('active');
+    shoppingCart.classList.remove('active');
+    navbar.classList.remove('active');
+}
 
-// Toggle the search form on search button click
-searchBtn.addEventListener('click', function () {
-    toggleElement(searchForm);
-});
+document.querySelector('#shoppingcart').onclick = () => {
+    shoppingCart.classList.toggle('active');
+    loginForm.classList.remove('active');
+    searchForm.classList.remove('active');
+    navbar.classList.remove('active');
+}
 
-// Toggle the shopping cart on shopping cart button click
-shoppingCartBtn.addEventListener('click', function () {
-    toggleElement(shoppingCart);
-});
+document.querySelector('#loginform').onclick = () => {
+    loginForm.classList.toggle('active');
+    shoppingCart.classList.remove('active');
+    searchForm.classList.remove('active');
+    navbar.classList.remove('active');
+}
 
-// Toggle the login form on login form button click
-loginFormBtn.addEventListener('click', function () {
-    toggleElement(loginForm);
-});
-
-// Close all elements when scrolling
-window.addEventListener('scroll', function () {
+window.onscroll = () => {
+    // Check if this event is firing correctly
+    console.log('Window scrolled');
     loginForm.classList.remove('active');
     shoppingCart.classList.remove('active');
     searchForm.classList.remove('active');
     navbar.classList.remove('active');
-});
+}
 
-// Initialize Swiper slider
 var swiper = new Swiper(".product-slider", {
     loop: true,
     spaceBetween: 20,
+    
     autoplay: {
         delay: 5000,
         disableOnInteraction: false,
