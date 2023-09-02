@@ -43,6 +43,7 @@ window.onscroll = () => {
 var swiper = new Swiper(".product-slider", {
     loop: true,
     spaceBetween: 20,
+    
     autoplay: {
         delay: 5000,
         disableOnInteraction: false,
